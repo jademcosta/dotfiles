@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Brightness definition
+Comment=Set a pleasant level of brightness
+Exec=xbacklight -set 20

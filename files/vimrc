@@ -1,0 +1,224 @@
+set nocompatible " be iMproved, required
+filetype off     " required by Vundle
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" ================================
+" Plugins managed by Vundle below
+" ================================
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+
+" Airline, a statusline
+Plugin 'bling/vim-airline'
+
+" Navigate on buffer
+Plugin 'vim-scripts/bufexplorer.zip'
+
+" Fuzzyfinder
+Plugin 'kien/ctrlp.vim'
+
+" List undo tree
+Plugin 'sjl/gundo.vim'
+
+" This plugin highlights the matching HTML tag when the cursor is positioned on a tag
+Plugin 'gregsexton/MatchTag'
+
+" Tree explorer
+Plugin 'scrooloose/nerdtree'
+
+" provides insert mode auto-completion for quotes, parens, brackets, etc
+Plugin 'Raimondi/delimitMate'
+
+" Knows how to comment in a bunch of languages 
+Plugin 'scrooloose/nerdcommenter'
+
+" Knows how to match html tags using %
+Plugin 'vim-scripts/matchit.zip'
+
+" YouCompleteMe, a code completion engine
+" I turned it off as it is waaaaaay intrusive :/
+" Plugin 'Valloric/YouCompleteMe'
+
+" Snipets for snipMate and ultisnips
+Bundle 'honza/vim-snippets'
+
+" Code snipets engine
+Plugin 'SirVer/ultisnips'
+
+" Supertab
+Plugin 'ervandew/supertab'
+
+" Colors identation different levels
+Plugin 'nathanaelkane/vim-indent-guides'
+
+" A lot of colorschemes
+Plugin 'flazz/vim-colorschemes'
+
+" Ctags
+Plugin 'majutsushi/tagbar'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" Diferentes identações para diferentes tipos de arquivo. Para usar, basta criar python.vim com as 3 linhas acima
+" Por exemplo, pra fazer soh expandtab em arqvs python, usaríamos: autocmd filetype python set expandtab
+
+syntax on " Colorir de acordo com a linguagem
+
+let mapleader="," " remapeia o leader de \ para ," 
+
+set guifont=DejaVu\ Sans\ Mono\ 10
+colorscheme codeschool
+set background=dark
+
+if has("gui_running")
+    "tell the term has 256 colors
+    set t_Co=256
+    set guioptions-=T "remove toolbar
+    " set guioptions-=r "remove right-hand scroll bar
+    " Maximize gvim window.
+    set lines=40 columns=120
+endif
+
+set wrap " quebra a linha artificialmente, apenas quando encostar na borda direita da tela.
+set lbr " na quebra artifical de linha, não quebra palavra no meio
+set encoding=utf-8
+
+set shiftwidth=4 " essa e a proxima linha dizem que o tab tem 4 espaços
+set tabstop=4
+set expandtab " ao dar tab, transforma ele no número de espaços correspondente
+set autoindent " Ao dar enter, mantém a identação da linha anterior
+
+" 2 space identation for ruby files
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+
+set scrolloff=5 " minimum lines to keep above and below cursor
+set showmatch " Show matching brackets.
+set number " line numbers On
+set ruler " Mostra a posição do cursor
+set cursorline " Destaca a linha atual
+set clipboard=unnamedplus " Copia do vim para o clipboard
+set laststatus=2
+
+set incsearch " Pesquisa incremental
+set hlsearch " Highligth search :)
+set ignorecase " Pesquisa ignora caixa alta e baixa
+set smartcase " Pesquisa considera caixa alta apenas se ouver uma ou mais maiúsculas na pesquisa
+set hidden " allow buffer switching without saving
+
+" Make command line two lines high
+set ch=2
+set autoread " Caso o arquivo seja modificado FORA do vim ele é atualizado DENTRO do vim
+
+
+set wildignore=*.o,*.obj,*.bak,*.exe,*.dll,*.com,*.class,*.au,*.wav,*.ps,*.avi,*.wmv,*.flv,*.djvu,*.pdf,*.chm,*.dvi,*.svn/,*~
+
+set history=1000         " remember more commands and search history
+set undolevels=1000      " use many muchos levels of undo
+
+set nobackup " Sem arquivos chatos que o vim fica criando pra backup
+set noswapfile
+" set wildmenu
+" set wildmode=list:longest,full
+
+set modelines=0 " tem a ver com segurança...
+
+" ============
+" Maps
+" ============
+
+" Mapeia o ESC pra outra tecla, pra evitar a fadiga, heheheheh 
+:imap <leader>m <Esc>
+:vmap <leader>m <Esc>
+
+" Easier resizing windows
+nnoremap <A-Up> <C-w>+
+nnoremap <A-Down> <C-w>-
+nnoremap <A-Left> <C-w><
+nnoremap <A-Right> <C-w>>
+
+" Easier moving in splitted windows
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-l> <C-W>l
+noremap <C-h> <C-W>h
+
+" atalho pra :nohl (tira highlight de buscas no texto)
+nnoremap <silent> <Leader>n :nohl<CR>
+
+nnoremap ; :
+
+" split vertical
+nnoremap <leader>w <C-w>v<C-w>l
+
+" Serve para navegar em linhas wrapped
+noremap <C-A-j> gj
+noremap <C-A-k> gk
+noremap <C-A-l> g$
+noremap <C-A-h> g^
+
+" delete without yanking
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+" delete without yanking and paste what is in the clipboard
+vnoremap <leader>p "_dP
+
+
+" ========================
+" Plugins configs and maps 
+" ========================
+
+" NerdTree
+
+map <leader>t :NERDTreeToggle<CR>
+let NERDTreeHighlightCursorline=1 " Destaca a linha atual
+let NERDTreeShowHidden=1 " Lista arquivos ocultos
+let NERDTreeShowLineNumbers=0
+" let NERDTreeQuitOnOpen=1
+let NERDTreeIgnore=[ '^\.git$' ] " Arquivos que não serão exibidos.
+
+" CtrlP: Pesquisa arquivos e diretórios
+nnoremap <leader>p :CtrlP<CR>
+let g:ctrlp_working_path_mode='ra'
+
+" BufExplorer: Plugin que melhora a visualização do :buffers
+nnoremap <leader>b :BufExplorerHorizontalSplit<CR>
+
+"Gundo
+nnoremap <leader>g :GundoToggle<CR>
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-Tab>"
+let g:UltiSnipsListSnippets="<c-s-Tab>"
+
+" YouCompleteMe
+let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
+
+" Supertab
+let g:SuperTabDefaultCompletionType = '<C-Tab>'
+
+" Ident guides
+let g:indent_guides_enable_on_vim_startup = 2 " enabled on startup
+let g:indent_guides_guide_size = 1 " width of the guide column. 0 defaults to the size of shiftwidth
+
+" YouCompleteMe
+let g:ycm_auto_trigger = 0 " popup does not show automatically
+
+" Ctags
+nmap <F8> :TagbarToggle<CR>
+

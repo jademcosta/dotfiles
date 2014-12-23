@@ -1,0 +1,86 @@
+---
+- hosts: localhost
+  remote_user: jd
+  vars:
+    ruby_version: ruby-2.1.5
+  tasks:
+  - name: install media packages
+    sudo: yes
+    apt: name={{ item }} state=latest update_cache=yes
+    with_items:
+      - gimp
+      - vlc
+      - audacious
+      # - kazam
+  - name: install dev packages
+    sudo: yes
+    apt: name={{ item }} state=latest
+    with_items:
+      - build-essential
+      - openjdk-7-jdk
+      - icedtea-7-plugin
+      - git
+      - subversion
+      - vim-gtk
+      - terminator
+      - meld
+      - gitg
+      - curl
+      - cmake
+      - nodejs
+  - name: ensure openjdk 6 is absent
+    sudo: yes
+    apt: name=openjdk-6-jdk state=absent
+  - name: ensure icedtea 6 is absent
+    sudo: yes
+    apt: name=icedtea-6-plugin state=absent
+  - name: install other packages
+    sudo: yes
+    apt: name={{ item }} state=latest
+    with_items:
+      - xchat
+      - pidgin
+      - libreoffice
+      - gdebi
+      - synaptic
+      - conky
+  - name: copy gitconfig
+    copy: src=files/gitconfig dest=~/.gitconfig mode=0664 force=yes
+  - name: copy conkyrc
+    copy: src=files/conkyrc dest=~/.conkyrc mode=0664
+  - name: copy gemrc
+    copy: src=files/gemrc dest=~/.gemrc mode=0664
+  - name: copy vimrc
+    copy: src=files/vimrc dest=~/.vimrc mode=0664
+  - name: copy fonts folder
+    copy: src=files/fonts/ dest=~/.fonts mode=0775 force=yes
+  - name: clone gvim vundle plugin
+    git: repo=https://github.com/gmarik/Vundle.vim.git dest=~/.vim/bundle/Vundle.vim
+  - name: reload the cache of fonts
+    sudo: yes
+    shell: fc-cache -fv
+  - name: copy scripts folder
+    copy: src=files/scripts/ dest=~/scripts mode=0775 force=yes
+  - name: install RVM gpg keys
+    sudo: yes
+    shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
+  - name: install RVM (local to current user)
+    shell: curl -sSL https://get.rvm.io | bash
+  - name: add rvm bins to PATH (using bashrc)
+    lineinfile:
+      dest=~/.bashrc
+      line="export PATH=\"$PATH:$HOME/.rvm/bin\""
+      insertafter=EOF
+      create=yes
+  - name: add on bashrc second config line of rvm
+    lineinfile:
+      dest=~/.bashrc
+      line="[[ -s \"$HOME/.rvm/scripts/rvm\" ]] && . \"$HOME/.rvm/scripts/rvm\""
+      insertafter=EOF
+      create=yes
+  - name: install {{ ruby_version }} MRI with rvm
+    shell: rvm install {{ ruby_version }}
+  - name: set {{ ruby_version }} MRI as default ruby version of system
+    shell: rvm alias create default {{ ruby_version }}
+  - name: install gem bundler
+    gem: name=bundler state=latest

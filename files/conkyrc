@@ -1,0 +1,84 @@
+alignment top_right
+background yes
+use_xft yes
+xftfont 123:size=8
+xftalpha 0.1
+update_interval 1
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 250 5
+maximum_width 400
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color gray
+default_shade_color red
+default_outline_color green
+gap_x 10
+gap_y 10
+no_buffers no
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 1
+override_utf8_locale yes
+use_spacer yes
+text_buffer_size 256
+
+TEXT
+
+${font Arial:bold:size=10}${color DarkGoldenRod}TIME ${color DarkKhaki}${hr 2}
+
+${color DarkGoldenRod} ${font :size=30}$alignc${time %H:%Mh}
+${voffset -30}${font :bold:size=10}$alignc${time %d %b. %Y}
+${font :bold:size=8}$alignc${time %A}
+
+#${font openlogos:size=20}U${font Arial:size=20}${color DarkKhaki}GNU${color Ivory}#LINUX${font openlogos:size=20}t
+
+${voffset -50}
+${color DodgerBlue}
+${font}
+${font Arial:bold:size=10}${color DarkGoldenRod}SYSTEM ${color DarkKhaki} ${hr 2}
+$font${color DodgerBlue}$sysname $kernel $alignr $machine
+Intel i5-3450 $alignr${freq_g cpu0}Ghz
+Uptime $alignr${uptime}
+File System $alignr${fs_type}
+
+${font Arial:bold:size=10}${color DarkGoldenRod}PROCESSORS ${color DarkKhaki}${hr 2}
+$font${color DodgerBlue}CPU1 ${freq_g cpu 1} ${cpu cpu1}% ${cpubar cpu1}
+CPU2 ${freq_g cpu 2} ${cpu cpu2}% ${cpubar cpu2}
+TOTAL ${freq_g cpu 0} ${cpu cpu0}% ${cpubar cpu0}
+
+${font Arial:bold:size=10}${color DarkGoldenRod}TOP CPU PROCESSES ${color DarkKhaki}${hr 2}
+${color DodgerBlue}$font${top name 1}${goto 120}${top pid 1}${alignr}${top cpu 1} %
+${color DodgerBlue}$font${top name 2}${goto 120}${top pid 2}${alignr}${top cpu 2} %
+${color DodgerBlue}$font${top name 3}${goto 120}${top pid 3}${alignr}${top cpu 3} %
+
+${font Arial:bold:size=10}${color DarkGoldenRod}MEMORY ${color DarkKhaki}${hr 2}
+$font${color DodgerBlue}MEM $alignc $mem / $memmax $alignr $memperc%
+$membar
+
+${font Arial:bold:size=10}${color DarkGoldenRod}HDD ${color DarkKhaki}${hr 2}
+$font${color DodgerBlue}/ $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_free_perc /}%
+${fs_bar /}
+
+${font Arial:bold:size=10}${color DarkGoldenRod}TOP MEM PROCESSES ${color DarkKhaki}${hr 2}
+${color DodgerBlue}$font${top_mem name 1}${goto 120}${top_mem pid 1}${alignr}${top mem 1} %
+$font${top_mem name 2}${goto 120}${top_mem pid 2}${alignr}${top mem 2} %
+$font${top_mem name 3}${goto 120}${top_mem pid 3}${alignr}${top mem 3} %
+
+${font Arial:bold:size=10}${color Tan2}NETWORK ${color DarkKhaki}${hr 2}
+$font${color DodgerBlue}IP on eth0 $alignr ${addr eth0}
+Total Down:  ${totaldown eth0} $alignr Total Up:  ${totalup eth0}
+
+$font${color DodgerBlue}IP on wlan0 $alignr ${addr wlan0}
+Sinal ${wireless_link_qual wlan0}/${wireless_link_qual_max wlan0} ${wireless_link_bar wlan0}
+Bitrate ${wireless_bitrate wlan0}
+Down ${downspeed wlan0} $alignr Up ${upspeed wlan0}
+
+Total Down: $alignr  ${totaldown wlan0}
+Total Up: $alignr  ${totalup wlan0}
