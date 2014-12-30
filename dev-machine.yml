@@ -44,6 +44,7 @@
       - gdebi
       - synaptic
       - conky
+      - xclip
   - name: copy gitconfig
     copy: src=files/gitconfig dest=~/.gitconfig mode=0664 force=yes
   - name: copy conkyrc
