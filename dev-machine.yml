@@ -85,3 +85,5 @@
     shell: rvm alias create default {{ ruby_version }}
   - name: install gem bundler
     gem: name=bundler state=latest
+  - name: install gem rails
+    gem: name=rails state=latest
