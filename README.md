@@ -1,7 +1,7 @@
 My dotfiles, and provision script to setup my dev computer each time I format it ;)
 
 
-Run: sudo apt-get install ansible git
+Run: `sudo apt-get install ansible git`
 
 
 After, run with: ansible-playbook dev-machine.yml -K
