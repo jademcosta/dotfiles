@@ -17,6 +17,8 @@
     apt: name={{ item }} state=latest
     with_items:
       - build-essential
+      - curl
+      - wget
       - openjdk-7-jdk
       - icedtea-7-plugin
       - git
@@ -29,6 +31,7 @@
       - cmake
       - nodejs
       - virtualbox
+      - vagrant
   - name: ensure openjdk 6 is absent
     sudo: yes
     apt: name=openjdk-6-jdk state=absent
