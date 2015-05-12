@@ -1,22 +1,20 @@
-My dotfiles, and provision script to setup my dev computer each time I format it ;)
+# My dotfiles and provision script to setup my dev computer each time I format it ;)
 
 
 Run: `sudo apt-get install ansible git`
 
 
-After, run with: ansible-playbook dev-machine.yml -K
+After cloning this repo, run with: `ansible-playbook dev-machine.yml -K`
 
 
-Don't forget to:
+#### Don't forget to:
 * add Conky to some OS initializer.
 * run :PluginInstall on gvim.
 * Install Vagrant: https://www.vagrantup.com/downloads.html
 
-TODOs:
-* RVM is not setting the ruby version correctly (some problem with the terminal login?) with `rvm --default use 2.x.x`
-* Download and install subl3, and put my profile files here.
 
-Remember to always put ssh key mode on a new server:
+
+### Remember to always put ssh key mode on a new server:
 * If the directory doesn't exists, create: ~/.ssh with permission 700,
 and after, create a file named authorized_keys with permission 600
 * Add your pub key on ~/.ssh/authorized_keys on the server
@@ -24,3 +22,8 @@ and after, create a file named authorized_keys with permission 600
 * Maybe, enable the "login group" to be the users that belong to a
 specific group: `addgroup sshlogin && adduser root sshlogin`. After, write
 `AllowGroups sshlogin` on the /etc/ssh/sshd_config file
+
+
+### TODOs:
+* RVM is not setting the ruby version correctly (some problem with the terminal login?) with `rvm --default use 2.x.x`
+* Download and install subl3, and put my profile files here.
