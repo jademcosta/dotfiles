@@ -3,6 +3,8 @@
 
 Run: `sudo apt-get install ansible git`
 
+Configure ansible hosts putting the following content inside /etc/ansible/hosts   
+`localhost ansible_connection=local`
 
 After cloning this repo, run with: `ansible-playbook dev-machine.yml -K`
 
