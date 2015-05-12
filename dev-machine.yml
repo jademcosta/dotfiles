@@ -48,6 +48,7 @@
       - gdebi
       - synaptic
       - conky
+      - cryptsetup
       - xclip
   - name: copy gitconfig
     copy: src=files/gitconfig dest=~/.gitconfig mode=0664 force=yes
