@@ -1,0 +1,19 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by file type specific settings.
+{
+	"always_show_minimap_viewport": true,
+	"atomic_save": true,
+	// "auto_complete_commit_on_tab": true,
+	// "auto_complete_with_fields": true,
+	"auto_complete": true,
+	"copy_with_empty_selection": true,
+	"ensure_newline_at_eof_on_save": true,
+	"index_files": true,
+	"rulers":
+	[
+	  79
+	],
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
+}
