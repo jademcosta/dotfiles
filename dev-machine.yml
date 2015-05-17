@@ -67,6 +67,8 @@
     shell: fc-cache -fv
   - name: copy scripts folder
     copy: src=files/scripts/ dest=~/scripts mode=0775 force=yes
+  - name: copy sublime text 3 preferences folder
+    copy: src=files/sublime/ dest=~/.config/sublime-text-3/Packages/User mode=0775 force=no
   - name: install RVM gpg keys
     sudo: yes
     shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
