@@ -13,7 +13,17 @@ After cloning this repo, run with: `ansible-playbook dev-machine.yml -K`
 * run :PluginInstall on gvim.
 * Install Vagrant: https://www.vagrantup.com/downloads.html
 
-
+### Sublime
+* Install it :)
+* Install the packages (from [Package control](https://packagecontrol.io/), ctrl+shift+p will show the package controller, type "install" and hit enter):
+  * GitGutter
+  * AdvancedNewFile
+  * All Autocomplete
+  * Clipboard Manager
+  * Emmet
+  * SublimeLinter
+  * SublimeLinter-ruby
+  * SublimeLinter-rubocop
 
 ### Remember to always put ssh key mode on a new server:
 * If the directory doesn't exists, create: ~/.ssh with permission 700,
@@ -23,7 +33,6 @@ and after, create a file named authorized_keys with permission 600
 * Maybe, enable the "login group" to be the users that belong to a
 specific group: `addgroup sshlogin && adduser root sshlogin`. After, write
 `AllowGroups sshlogin` on the /etc/ssh/sshd_config file
-
 
 ### TODOs:
 * RVM is not setting the ruby version correctly (some problem with the terminal login?) with `rvm --default use 2.x.x`
