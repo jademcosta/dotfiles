@@ -96,3 +96,5 @@
     gem: name=bundler state=latest
   - name: install gem rails
     gem: name=rails state=latest
+  - name: install gem rubocop
+    gem: name=rubocop state=latest
