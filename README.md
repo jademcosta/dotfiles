@@ -37,4 +37,3 @@ specific group: `addgroup sshlogin && adduser root sshlogin`. After, write
 
 ### TODOs:
 * RVM is not setting the ruby version correctly (some problem with the terminal login?) with `rvm --default use 2.x.x`
-* Download and install subl3, and put my profile files here.
