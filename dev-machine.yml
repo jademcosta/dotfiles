@@ -75,7 +75,7 @@
     sudo: yes
     shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
   - name: install RVM (local to current user)
-    shell: curl -sSL https://get.rvm.io | bash
+    shell: curl -sSL https://get.rvm.io | bash -s stable
   - name: add rvm bins to PATH (using bashrc)
     lineinfile:
       dest=~/.bashrc
