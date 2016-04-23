@@ -27,7 +27,10 @@
       - terminator
       - meld
       - gitg
-      - curl
+      - patch
+      - zlib1g-dev
+      - liblzma-dev
+      - ruby-dev
       - cmake
       - nodejs
       - virtualbox
