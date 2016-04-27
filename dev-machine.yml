@@ -57,6 +57,8 @@
       - xclip
   - name: copy gitconfig
     copy: src=files/gitconfig dest=~/.gitconfig mode=0664 force=yes
+  - name: copy git commit template message
+    copy: src=files/git_commit_message_template dest=~/.git_commit_message_template mode=0664 force=yes
   - name: copy conkyrc
     copy: src=files/conkyrc dest=~/.conkyrc mode=0664
   - name: copy gemrc

@@ -16,3 +16,5 @@
 [user]
   name = jademcosta
   email = jademcosta@gmail.com
+[commit]
+  template = ~/.git_commit_message_template
