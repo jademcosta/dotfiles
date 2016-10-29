@@ -25,6 +25,9 @@ After cloning this repo, run with: `ansible-playbook dev-machine.yml -K`
   * SublimeLinter-ruby
   * SublimeLinter-rubocop
   * SideBarEnhancements
+  * Ctags
+  * Rspec
+  * Agila Theme
 
 ### Remember to always put ssh key mode on a new server:
 * If the directory doesn't exists, create: ~/.ssh with permission 700,

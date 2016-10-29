@@ -36,6 +36,7 @@
       - python3-pip
       - nodejs
       - virtualbox
+      - exuberant-ctags
       - vagrant
   - name: ensure openjdk 6 is absent
     sudo: yes
