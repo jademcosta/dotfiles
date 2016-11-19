@@ -98,27 +98,6 @@
     copy: src=files/sublime/ dest=~/.config/sublime-text-3/Packages/User mode=0775 force=no
   - name: copy sublime text 3 package manager
     copy: src=files/sublime/Package Control.sublime-package dest=~/.config/sublime-text-3/Installed Packages/Package Control.sublime-package mode=0775 force=no
-  - name: install RVM gpg keys
-    sudo: yes
-    shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
-  - name: install RVM (local to current user)
-    shell: curl -sSL https://get.rvm.io | bash -s stable
-  - name: add rvm bins to PATH (using bashrc)
-    lineinfile:
-      dest=~/.bashrc
-      line="export PATH=\"$PATH:$HOME/.rvm/bin\""
-      insertafter=EOF
-      create=yes
-  - name: add on bashrc second config line of rvm
-    lineinfile:
-      dest=~/.bashrc
-      line="[[ -s \"$HOME/.rvm/scripts/rvm\" ]] && . \"$HOME/.rvm/scripts/rvm\""
-      insertafter=EOF
-      create=yes
-  - name: install {{ ruby_version }} MRI with rvm
-    shell: rvm install {{ ruby_version }}
-  - name: set {{ ruby_version }} MRI as default ruby version of system
-    shell: rvm alias create default {{ ruby_version }}
   - name: install gem bundler
     gem: name=bundler state=latest
   - name: install gem rails
