@@ -52,6 +52,7 @@
       - pidgin
       - libreoffice
       - gdebi
+      - unzip
       - synaptic
       - conky
       - cryptsetup
@@ -104,3 +105,19 @@
     gem: name=rails state=latest
   - name: install gem rubocop
     gem: name=rubocop state=latest
+  - name: install numpy and scipy
+    sudo: yes
+    shell: pip3 install numpy scipy
+  - name: download and unzip opencv
+    shell: wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.1.0.zip && unzip opencv.zip
+  - name: download and unzip opencv-contrib
+    shell: wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.1.0.zip && unzip opencv_contrib.zip
+  - name: prepare opencv build folder
+    shell: cd ./opencv-3.1.0/ && mkdir build && cd build && cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_PYTHON_EXAMPLES=ON -D INSTALL_C_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.1.0/modules -D PYTHON_EXECUTABLE=/usr/bin/python3 -D ENABLE_PRECOMPILED_HEADERS=OFF -D BUILD_EXAMPLES=ON ..
+  - name: compile and install opencv
+    sudo: yes
+    shell: make install && ldconfig
+  - name: rename opencv so file
+    sudo: yes
+    shell: cd /usr/local/lib/python3.5/dist-packages/ && mv cv2.cpython-35m-x86_64-linux-gnu.so cv2.so
+
