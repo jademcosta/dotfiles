@@ -56,6 +56,25 @@
       - conky
       - cryptsetup
       - xclip
+  - name: install opencv packages
+    sudo: yes
+    apt: name={{ item }} state=latest
+    with_items:
+      - pkg-config
+      - libjpeg8-dev
+      - libtiff5-dev
+      - libjasper-dev
+      - libpng-dev
+      - libavcodec-dev
+      - libavformat-dev
+      - libswscale-dev
+      - libv4l-dev
+      - libxvidcore-dev
+      - libx264-dev
+      - libgtk-3-dev
+      - libatlas-base-dev
+      - gfortran
+      - python3.5-dev
   - name: copy gitconfig
     copy: src=files/gitconfig dest=~/.gitconfig mode=0664 force=yes
   - name: copy git commit template message
