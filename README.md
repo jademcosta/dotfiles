@@ -26,6 +26,8 @@ After cloning this repo, run with: `ansible-playbook dev-machine.yml -K`
   * SublimeLinter-rubocop
   * SideBarEnhancements
   * Ctags
+  * pretty JSON
+  * Markdown Preview
   * Rspec
   * Agila Theme
 
