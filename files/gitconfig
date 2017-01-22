@@ -1,5 +1,5 @@
 [color]
-	ui = true
+  ui = true
 
 [color "branch"]
   current = green
@@ -18,3 +18,5 @@
   email = jademcosta@gmail.com
 [commit]
   template = ~/.git_commit_message_template
+[pull]
+  rebase = true
