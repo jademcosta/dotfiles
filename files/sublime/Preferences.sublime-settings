@@ -1,21 +1,28 @@
-// Settings in here override those in "Default/Preferences.sublime-settings",
-// and are overridden in turn by file type specific settings.
 {
 	"always_show_minimap_viewport": true,
 	"atomic_save": true,
-	// "auto_complete_commit_on_tab": true,
-	// "auto_complete_with_fields": true,
 	"auto_complete": true,
+	"color_scheme": "Packages/User/SublimeLinter/Agila Oceanic Next (SL).tmTheme",
 	"copy_with_empty_selection": true,
 	"ensure_newline_at_eof_on_save": true,
+	"caret_style": "phase",
+	"caret_extra_width": 2,
+	"caret_extra_top": 1,
+	"indent_guide_options": [ "draw_normal", "draw_active" ],
+	"highlight_line": true,
+	"caret_extra_bottom": 1,
+	"bold_folder_labels": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
 	"index_files": true,
-	"theme": "Agila.sublime-theme",
-	"color_scheme": "Packages/Agila Theme/Agila Oceanic Next.tmTheme",
 	"rulers":
 	[
-	  79
+		80
 	],
 	"tab_size": 2,
+	"theme": "Agila.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }

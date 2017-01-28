@@ -9,5 +9,6 @@
 		"thor",
 		"simplecov"
 	],
-	"word_separators": "./\\()\"'-:,.;<>~@#$%^&*|+=[]{}`~"
+	"word_separators": "./\\()\"'-:,.;<>~@#$%^&*|+=[]{}`~",
+	"tab_size": 4
 }
