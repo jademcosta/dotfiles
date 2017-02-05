@@ -11,6 +11,12 @@ After cloning this repo, run with: `ansible-playbook dev-machine.yml -K`
 #### Don't forget to:
 * add Conky to some OS initializer.
 * run :PluginInstall on gvim.
+* Install [asdf](https://github.com/asdf-vm/asdf):
+```shell
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.2.1
+echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+```
 
 ### Sublime
 * Install it :)
