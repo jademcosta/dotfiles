@@ -11,7 +11,6 @@ After cloning this repo, run with: `ansible-playbook dev-machine.yml -K`
 #### Don't forget to:
 * add Conky to some OS initializer.
 * run :PluginInstall on gvim.
-* Install Vagrant: https://www.vagrantup.com/downloads.html
 
 ### Sublime
 * Install it :)
