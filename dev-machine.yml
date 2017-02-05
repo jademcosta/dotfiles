@@ -38,7 +38,7 @@
       - nodejs
       - virtualbox
       - exuberant-ctags
-      - vagrant
+      - htop
   - name: ensure openjdk 6 is absent
     sudo: yes
     apt: name=openjdk-6-jdk state=absent
