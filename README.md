@@ -36,6 +36,8 @@ echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
   * Rspec
   * Agila Theme
   * Dockerfile Syntax Highlighting
+  * SublimeLinter-pep8
+  * SublimeLinter-pyflakes
 
 ### Remember to always put ssh key mode on a new server:
 * If the directory doesn't exists, create: ~/.ssh with permission 700,
