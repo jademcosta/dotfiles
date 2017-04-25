@@ -21,23 +21,8 @@ echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
 ### Sublime
 * Install it :)
 * Install the packages (from [Package control](https://packagecontrol.io/), ctrl+shift+p will show the package controller, type "install" and hit enter):
-  * GitGutter
-  * AdvancedNewFile
-  * All Autocomplete
-  * Clipboard Manager
-  * Emmet
-  * SublimeLinter
-  * SublimeLinter-ruby
-  * SublimeLinter-rubocop
-  * SideBarEnhancements
-  * Ctags
-  * pretty JSON
-  * Markdown Preview
-  * Rspec
-  * Agila Theme
-  * Dockerfile Syntax Highlighting
-  * SublimeLinter-pep8
-  * SublimeLinter-pyflakes
+  * PackageSync
+Then, load the zip file inside sublime text folder in files folder.
 
 ### Remember to always put ssh key mode on a new server:
 * If the directory doesn't exists, create: ~/.ssh with permission 700,
