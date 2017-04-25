@@ -39,6 +39,24 @@
       - virtualbox
       - exuberant-ctags
       - htop
+      - libpq-dev
+      - libc6:i386
+      - libncurses5:i386
+      - libstdc++6:i386
+      - lib32z1
+      - libbz2-1.0:i386
+      - openssl
+      - readline-common
+      - bzip2
+      - make
+      - libssl-dev
+      - libbz2-dev
+      - libreadline-dev
+      - llvm
+      - libncurses5-dev
+      - libncursesw5-dev
+      - xz-utils
+      - tk-dev
   - name: ensure openjdk 6 is absent
     sudo: yes
     apt: name=openjdk-6-jdk state=absent
