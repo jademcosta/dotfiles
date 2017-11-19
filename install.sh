@@ -1,17 +1,17 @@
 #!/bin/bash
 
-
-#apt-get update -q
-#apt-get upgrade -qy
+apt-get update -q
+apt-get upgrade -qy
 
 echo "Remove thunderbird..."
 apt-get purge thunderbird* -qy
 
 echo "Installing desktop packages..."
-apt-get install gimp vlc inkscape libreoffice firefox -qy
+apt-get install gimp vlc inkscape libreoffice firefox simple-scan -qy
 
 echo "Installing utility packages..."
-apt-get install unzip unrar gdebi xclip cryptsetup conky -qy
+apt-get install unzip unrar gdebi xclip cryptsetup conky pngquant \
+usb-creator-gtk -qy
 
 echo "Installing dev packages..."
 apt-get install openjdk-9-jdk wget build-essential curl git subversion vim-gtk \
@@ -45,10 +45,7 @@ fc-cache -fv
 echo "Installing vim vundle..."
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-echo "Add some lines to bashrc..."
-echo -e '\nexport GOPATH=/home/jade/dev/go' >> ~/.bashrc
-echo -e '\nexport GOROOT=/home/jade/.asdf/installs/golang/1.8.1/go' >> ~/.bashrc
-echo -e '\nexport PATH=$PATH:$GOPATH/bin\n' >> ~/.bashrc
+echo "Add config lines to bashrc..."
 echo -e '\nsource $HOME/.bash_prompt\n' >> ~/.bashrc
 
 echo "Install docker..."
@@ -67,3 +64,10 @@ echo "Install docker-composer"
 sudo curl -L \
 https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` \
 -o /usr/local/bin/docker-compose
+
+echo "Install asdf"
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.0
+echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+source ~/.bashrc
+asdf update
