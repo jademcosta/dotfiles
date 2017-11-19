@@ -36,6 +36,9 @@ cp -r ./files/fonts ~/.fonts
 mkdir -p ~/scripts
 cp -r files/scripts ~/scripts
 
+echo "Copying sysctl files"
+cp ./files/60* /etc/sysctl.d/
+
 echo "Reloading system fonts..."
 fc-cache -fv
 
