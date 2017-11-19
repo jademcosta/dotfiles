@@ -12,3 +12,6 @@ echo -e '\nexport PATH=$PATH:$GOPATH/bin\n' >> ~/.bashrc
 echo "Installing local hex and rebar (Elixir)"
 mix local.hex
 mix local.rebar
+
+echo "Installing pip packages"
+pip install pylama pyflakes flake8 jedi
