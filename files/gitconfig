@@ -9,6 +9,13 @@
 [alias]
   visual = !gitg &ll = log --pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  s = status -s
+  st = status
+  co = checkout
+  ci = commit
+  tags = tag -l
+	branches = branch -a
+	remotes = remote -v
 [diff]
   tool = meld
 [core]
