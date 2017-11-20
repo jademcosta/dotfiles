@@ -1,6 +1,6 @@
 # My dotfiles and provision script to setup my dev computer each time I format it ;)
 
-Run: `sudo bash install.sh`
+Run: `bash install.sh`
 
 After it, do the following:
 

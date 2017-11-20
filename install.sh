@@ -1,20 +1,20 @@
 #!/bin/bash
 
-apt-get update -q
-apt-get upgrade -qy
+sudo apt-get update -q
+sudo apt-get upgrade -qy
 
 echo "Remove thunderbird..."
-apt-get purge thunderbird* -qy
+sudo apt-get purge thunderbird* -qy
 
 echo "Installing desktop packages..."
-apt-get install gimp vlc inkscape libreoffice firefox simple-scan -qy
+sudo apt-get install gimp vlc inkscape libreoffice firefox simple-scan -qy
 
 echo "Installing utility packages..."
-apt-get install unzip unrar gdebi xclip cryptsetup conky pngquant \
+sudo apt-get install unzip unrar gdebi xclip cryptsetup conky pngquant \
 usb-creator-gtk -qy
 
 echo "Installing dev packages..."
-apt-get install openjdk-9-jdk wget build-essential curl git subversion vim-gtk \
+sudo apt-get install openjdk-8-jdk wget build-essential curl git subversion vim-gtk \
  terminator meld gitg gitk patch ruby-dev autoconf bison libssl-dev \
  libyaml-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev libffi-dev \
  libgdbm-dev liblzma-dev libsqlite3-dev cmake make htop iotop libpq-dev \
@@ -37,7 +37,7 @@ mkdir -p ~/scripts
 cp -r files/scripts ~/scripts
 
 echo "Copying sysctl files"
-cp ./files/60* /etc/sysctl.d/
+sudo cp ./files/60* /etc/sysctl.d/
 
 echo "Reloading system fonts..."
 fc-cache -fv
