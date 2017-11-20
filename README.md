@@ -11,6 +11,7 @@ UUID=609D-BDC2  /boot/efi       vfat    umask=0077      0       1
 UUID=b88946a1-94a9-4e34-9383-ad6824af9322 none            swap    sw              0       0
 ```
 
+* Restore the ssh key that you saved (you saved it, right?).
 * add Conky to some OS initializer.
 * run :PluginInstall on gvim.
 * Install [asdf](https://github.com/asdf-vm/asdf) plugins
