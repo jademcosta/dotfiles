@@ -7,7 +7,8 @@ echo "Remove thunderbird..."
 sudo apt-get purge thunderbird* -qy
 
 echo "Installing desktop packages..."
-sudo apt-get install gimp vlc inkscape libreoffice firefox simple-scan -qy
+sudo apt-get install gimp vlc inkscape libreoffice firefox simple-scan \
+shutter -qy
 
 echo "Installing utility packages..."
 sudo apt-get install unzip unrar gdebi xclip cryptsetup conky pngquant \
@@ -21,7 +22,8 @@ sudo apt-get install openjdk-8-jdk wget build-essential curl git subversion vim-
  libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386 openssl \
  readline-common bzip2 libbz2-dev libreadline-dev llvm libncurses5-dev \
  libncursesw5-dev xz-utils tk-dev silversearcher-ag apt-transport-https \
- ca-certificates software-properties-common -qy
+ ca-certificates software-properties-common m4 libwxgtk3.0-dev \
+ libgl1-mesa-dev libglu1-mesa-dev libssh-dev unixodbc-dev libpng-dev -qy
 
 echo "Copying config files..."
 cp ./files/gitconfig ~/.gitconfig
@@ -60,14 +62,27 @@ sudo apt-get install docker-ce -qy
 echo "Consider adding your user to the docker group, so you do not need sudo:"
 echo "sudo usermod -aG docker your-user"
 
-echo "Install docker-composer"
+echo "Install docker-composer..."
 sudo curl -L \
 https://github.com/docker/compose/releases/download/1.17.0/docker-compose-`uname -s`-`uname -m` \
 -o /usr/local/bin/docker-compose
 
-echo "Install asdf"
+echo "Install asdf..."
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.4.0
 echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
 echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
 source ~/.bashrc
 asdf update
+
+echo "Install icon sets..."
+mkdir ~/.icons
+git clone https://github.com/rudrab/Shadow.git ~/.icons/shadow
+git clone https://github.com/madmaxms/iconpack-obsidian.git ~/.icons/obs-git
+mv ~/.icons/obs-git/* ~/.icons/
+rm -rf ~/.icons/.git
+rm -rf ~/.icons/obs-git
+sudo add-apt-repository ppa:papirus/papirus -qy
+sudo add-apt-repository ppa:numix/ppa
+sudo apt-get update -q
+sudo apt-get install papirus-icon-theme moka-icon-theme faba-icon-theme \
+ pocillo-icon-theme numix-icon-theme-circle -qy

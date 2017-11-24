@@ -26,7 +26,12 @@ UUID=b88946a1-94a9-4e34-9383-ad6824af9322 none            swap    sw            
   * Install the packages (from [Package control](https://packagecontrol.io/), ctrl+shift+p will show the package controller, type "install" and hit enter):
   * PackageSync. Then, load the zip file inside sublime text folder in files folder.
 
-Run: `sudo bash post-language-install.sh`
+* More icons themes?
+Uniform: https://drive.google.com/uc?id=0B0Mp-ooor4g5Rk00aThWOGdzM1U&export=download  
+A lot of icon themes: https://www.gnome-look.org/browse/cat/132/ord/top/
+
+
+* Run: `bash post-language-install.sh`
 
 
 ### Remember to always put ssh key mode on a new server:
