@@ -24,7 +24,7 @@ sudo apt-get install openjdk-8-jdk wget build-essential curl git subversion vim-
  libncursesw5-dev xz-utils tk-dev silversearcher-ag apt-transport-https \
  ca-certificates software-properties-common m4 libwxgtk3.0-dev \
  libgl1-mesa-dev libglu1-mesa-dev libssh-dev unixodbc-dev libpng-dev \
- lib32ncurses5 lib32stdc++6 -qy
+ zlib1g:i386 -qy
 
 echo "Copying config files..."
 cp ./files/gitconfig ~/.gitconfig
