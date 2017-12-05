@@ -24,7 +24,7 @@ sudo apt-get install openjdk-8-jdk wget build-essential curl git subversion vim-
  libncursesw5-dev xz-utils tk-dev silversearcher-ag apt-transport-https \
  ca-certificates software-properties-common m4 libwxgtk3.0-dev \
  libgl1-mesa-dev libglu1-mesa-dev libssh-dev unixodbc-dev libpng-dev \
- zlib1g:i386 -qy
+ zlib1g:i386 postgresql-client-common postgresql-client -qy
 
 echo "Copying config files..."
 cp ./files/gitconfig ~/.gitconfig
