@@ -7,38 +7,77 @@ chmod 644 ~/.ssh/config
 chmod 600 ~/.ssh/id_rsa
 chmod 644 ~/.ssh/id_rsa.pub
 
-
-# ruby-dev autoconf bison libssl-dev \
-#  libyaml-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev libffi-dev \
-#  libgdbm-dev liblzma-dev libsqlite3-dev cmake make htop iotop libpq-dev \
-#  libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386 openssl \
-#  readline-common bzip2 libbz2-dev libreadline-dev llvm libncurses5-dev \
-#  libncursesw5-dev xz-utils tk-dev silversearcher-ag apt-transport-https \
-#  ca-certificates software-properties-common m4 libwxgtk3.0-dev \
-#  libgl1-mesa-dev libglu1-mesa-dev libssh-dev unixodbc-dev libpng-dev \
-#  zlib1g:i386 postgresql-client-common postgresql-client -qy
-
-
 echo "Installing asdf..."
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.8
 echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.zshrc
-echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.zshrc
+echo -e '\n# append completions to fpath' >> ~/.zshrc
+echo -e '\nfpath=(${ASDF_DIR}/completions $fpath)' >> ~/.zshrc
+echo -e '\n# initialise completions with ZSHs compinit' >> ~/.zshrc
+echo -e '\nautoload -Uz compinit && compinit' >> ~/.zshrc
 source ~/.zshrc
 asdf update
 
-echo "Installing ruby libs"
+asdf plugin-add ruby 
+asdf plugin-add python 
+asdf plugin-add nodejs 
+asdf plugin-add golang 
+asdf plugin-add terraform 
+asdf plugin-add elixir 
+asdf plugin-add erlang
+
+
+echo "Copy default lib files..."
+cp ./files/default-gems ~/.default-gems
+cp ./files/default-npm-packages ~/.default-npm-packages
+cp ./files/default-python-packages ~/.default-python-packages
+cp ./files/default-golang-pkgs ~/.default-golang-pkgs
+
+echo "Install programming language dependencies..."
+# Ruby dependencies
+sudo apt install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev \
+libgdbm6 libgdbm-dev libdb-dev
+# Node dependencies
+sudo apt install dirmngr gpg curl
+bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+# Python dependencies
+sudo apt install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev \
+wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+#Erlang dependencies
+sudo apt install build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev
+
+echo "Install ruby..."
+asdf list-all ruby > /dev/null
+asdf install ruby 2.7.1
+asdf global ruby 2.7.1
 gem update --system
-gem install rubocop
 
-echo "Add golang conf to zshrc"
-echo -e '\nexport GOPATH=/home/jade/dev/go' >> ~/.zshrc
-echo -e '\nexport PATH=$PATH:$GOPATH/bin\n' >> ~/.zshrc
+echo "Install nodejs..."
+asdf list-all nodejs > /dev/null
+asdf install nodejs 14.5.0
+asdf global nodejs 14.5.0
 
-echo "Installing local hex and rebar (Elixir)"
+echo "Install python..."
+asdf list-all python > /dev/null
+asdf install python 3.8.3
+asdf global python 3.8.3
+
+echo "Install erlang..."
+asdf list-all erlang > /dev/null
+asdf install erlang 23.0.2
+asdf global erlang 23.0.2
+
+echo "Install elixir..."
+asdf list-all elixir > /dev/null
+asdf install elixir 1.10.4-otp-23
+asdf global elixir 1.10.4-otp-23
 mix local.hex
 mix local.rebar
 
-echo "Installing pip packages"
-pip install pylama pyflakes flake8 jedi
-
+echo "Install golang..."
+mkdir -p ~/dev/go
+echo -e '\nexport GOPATH=/home/jade/dev/go' >> ~/.zshrc
+echo -e '\nexport PATH=$PATH:$GOPATH/bin\n' >> ~/.zshrc
+asdf list-all golang > /dev/null
+asdf install golang 1.14.4
+asdf global golang 1.14.4
 
