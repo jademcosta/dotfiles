@@ -10,11 +10,11 @@ echo "Installing desktop packages..."
 sudo apt-get install gimp vlc inkscape libreoffice firefox simple-scan ubuntu-restricted-extras gnome-tweaks safeeyes -qy
 
 echo "Installing utility packages..."
-sudo apt-get install unzip unrar gdebi xclip cryptsetup conky pngquant usb-creator-gtk -qy
+sudo apt-get install unzip unrar gdebi xclip cryptsetup conky pngquant usb-creator-gtk psensor -qy
 
 echo "Installing dev packages..."
 sudo apt-get install wget build-essential curl git vim-gtk terminator meld gitg gitk patch ripgrep \
-zsh
+zsh git-extras
 
 echo "Setting ZSH as main shell..."
 chsh -s $(which zsh)

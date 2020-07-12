@@ -17,12 +17,12 @@ echo -e '\nautoload -Uz compinit && compinit' >> ~/.zshrc
 source ~/.zshrc
 asdf update
 
-asdf plugin-add ruby 
-asdf plugin-add python 
-asdf plugin-add nodejs 
-asdf plugin-add golang 
-asdf plugin-add terraform 
-asdf plugin-add elixir 
+asdf plugin-add ruby
+asdf plugin-add python
+asdf plugin-add nodejs
+asdf plugin-add golang
+asdf plugin-add terraform
+asdf plugin-add elixir
 asdf plugin-add erlang
 
 
@@ -81,3 +81,7 @@ asdf list-all golang > /dev/null
 asdf install golang 1.14.4
 asdf global golang 1.14.4
 
+
+echo "Add to your zshrc (I'm lazy right now and will make it automatic later)"
+echo "plugins=(git lein kubectl docker docker-compose bundler golang mix)"
+echo "ZSH_THEME=\"avit\""
