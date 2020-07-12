@@ -58,8 +58,8 @@ echo "Install docker-compose..."
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-echo "Consider adding your user to the docker group, so you do not need sudo:"
-echo "sudo usermod -aG docker your-user"
+echo "Add your user to the docker group, so you do not need sudo..."
+sudo usermod -aG docker $(whoami)
 
 echo "Install icon sets..."
 mkdir ~/.icons
