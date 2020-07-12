@@ -60,6 +60,7 @@ echo "Install python..."
 asdf list-all python > /dev/null
 asdf install python 3.8.3
 asdf global python 3.8.3
+pip install --upgrade pip
 
 echo "Install erlang..."
 asdf list-all erlang > /dev/null
