@@ -1,19 +1,19 @@
 #!/bin/bash
 
-sudo apt-get update -q
-sudo apt-get upgrade -qy
+sudo apt update -q
+sudo apt upgrade -qy
 
 echo "Remove thunderbird..."
-sudo apt-get purge thunderbird* -qy
+sudo apt purge thunderbird* -qy
 
 echo "Installing desktop packages..."
-sudo apt-get install gimp vlc inkscape libreoffice firefox simple-scan ubuntu-restricted-extras gnome-tweaks safeeyes -qy
+sudo apt install gimp vlc inkscape libreoffice firefox simple-scan ubuntu-restricted-extras gnome-tweaks safeeyes -qy
 
 echo "Installing utility packages..."
-sudo apt-get install unzip unrar gdebi xclip cryptsetup conky pngquant usb-creator-gtk psensor -qy
+sudo apt install unzip unrar gdebi xclip cryptsetup conky pngquant usb-creator-gtk psensor -qy
 
 echo "Installing dev packages..."
-sudo apt-get install wget build-essential curl git vim-gtk terminator meld gitg gitk patch ripgrep \
+sudo apt install wget build-essential curl git vim-gtk terminator meld gitg gitk patch ripgrep \
 zsh git-extras
 
 echo "Setting ZSH as main shell..."
@@ -41,17 +41,17 @@ echo "Installing vim vundle..."
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "Installing docker dependencies..."
-sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -qy
+sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -qy
 
 echo "Add Docker’s official GPG key..."
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 echo "Add Docker's apt repository..."
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get update -q
+sudo apt update -q
 
 echo "Install Docker..."
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt install docker-ce docker-ce-cli containerd.io
 sudo systemctl enable docker
 
 echo "Install docker-compose..."
