@@ -14,7 +14,7 @@ sudo apt install unzip unrar gdebi xclip cryptsetup conky pngquant usb-creator-g
 
 echo "Installing dev packages..."
 sudo apt install wget build-essential curl git vim-gtk terminator meld gitg gitk patch ripgrep \
-zsh git-extras
+zsh git-extras bat
 
 echo "Setting ZSH as main shell..."
 chsh -s $(which zsh)
@@ -82,3 +82,5 @@ echo "Add Conky to some OS initializer"
 echo "Run :PluginInstall on gvim"
 echo "Manually move your ssh keys to ~/.ssh"
 echo "close your terminal and open it again, then run post-install.sh"
+echo "Download lsd from https://github.com/Peltoche/lsd/releases and then run sudo dpkg -i lsd_0.20.1_amd64.deb"
+echo "Same thing for https://github.com/dandavison/delta/releases"
