@@ -1,14 +1,14 @@
 #!/bin/bash
 
-echo "Set correct access on ssh keys..."
-chmod 644 ~/.ssh/authorized_keys
-chmod 644 ~/.ssh/known_hosts
-chmod 644 ~/.ssh/config
-chmod 600 ~/.ssh/id_rsa
-chmod 644 ~/.ssh/id_rsa.pub
+# echo "Set correct access on ssh keys..."
+# chmod 644 ~/.ssh/authorized_keys
+# chmod 644 ~/.ssh/known_hosts
+# chmod 644 ~/.ssh/config
+# chmod 600 ~/.ssh/id_rsa
+# chmod 644 ~/.ssh/id_rsa.pub
 
 echo "Installing asdf..."
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.8
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
 echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.zshrc
 echo -e '\n# append completions to fpath' >> ~/.zshrc
 echo -e '\nfpath=(${ASDF_DIR}/completions $fpath)' >> ~/.zshrc
@@ -24,7 +24,7 @@ asdf plugin-add golang
 asdf plugin-add terraform
 asdf plugin-add elixir
 asdf plugin-add erlang
-
+asdf plugin-add clojure
 
 echo "Copy default lib files..."
 cp ./files/default-gems ~/.default-gems
@@ -34,16 +34,18 @@ cp ./files/default-golang-pkgs ~/.default-golang-pkgs
 
 echo "Install programming language dependencies..."
 # Ruby dependencies
-sudo apt install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev \
-libgdbm6 libgdbm-dev libdb-dev
+sudo apt install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev -qy
 # Node dependencies
-sudo apt install dirmngr gpg curl
-bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+sudo apt install dirmngr gpg curl -qy
 # Python dependencies
-sudo apt install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev \
-wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+sudo apt install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -qy
 #Erlang dependencies
-sudo apt install build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev
+sudo apt install build-essential autoconf m4 libncurses5-dev libwxgtk3.0-gtk3-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev openjdk-11-jdk -qy
+#Golang dependencies
+sudo apt install coreutils curl
+
+exit 0
 
 echo "Install ruby..."
 asdf list-all ruby > /dev/null
