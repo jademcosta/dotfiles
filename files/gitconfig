@@ -1,5 +1,6 @@
 [core]
   pager = delta
+  editor = vim -f
 
 [color]
   ui = true
@@ -38,14 +39,36 @@
   tags = tag -l
 	branches = branch -a
 	remotes = remote -v
+
 [diff]
-  tool = meld
-[core]
-  editor = gvim -f
+  tool = difftastic
+  algorithm = histogram
+  submodule = log
+[merge]
+  conflictstyle = zdiff3
+
 [user]
   name = jademcosta
   email = jademcosta@gmail.com
+
 [commit]
   template = ~/.git_commit_message_template
+
 [pull]
   rebase = true
+
+[status]
+  submoduleSummary = true
+
+[submodule]
+  recurse = true
+
+[branch]
+	sort = -committerdate
+
+[tag]
+  sort = taggerdate
+
+[fetch]
+	prune = true
+	prunetags = true
